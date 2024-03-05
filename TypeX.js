@@ -132,3 +132,33 @@ function drawLazer() {
 /**
  * draws the score
  */
+function drawScore() {
+
+    textAlign(RIGHT);
+    noStroke();
+    textSize(30);
+    fill(255);
+    text(score, 50, height / 2);
+}
+
+/**
+ * Generates a random color
+ */
+function randomColor() {
+
+    return color(random(255), random(255), random(255));
+}
+
+/**
+ * stops loop, draws game over messege
+ */
+function endGame() {
+
+    noLoop();
+
+    fill(255);
+    noStroke();
+    textAlign(CENTER);
+    textSize(80);
+    text("Game Over!", width / 2, height / 2);
+}
