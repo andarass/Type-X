@@ -86,3 +86,49 @@ function keyPressed() {
         }
     }
 }
+
+/**
+ * draws planet as a rectangle
+ * draws "ground control" as a triangle
+ */
+function drawBase() {
+
+    /* planet */
+    fill(planetMantle);
+    stroke(planetCrust);
+    strokeWeight(5);
+    rect(0, height, -15, width, height);
+
+    /* ground control */
+    fill(ship);
+    stroke(255);
+    beginShape();
+    vertex(width / 2 - 20, height);
+    vertex(width / 2, height - 50);
+    vertex(width / 2 + 20, height);
+    endShape(CLOSE);
+}
+
+/**
+ * draws "lazer" between ground control and Asteroid
+ */
+function drawLazer() {
+    if (!focus)
+        return;
+
+    stroke(randomColor());
+    strokeWeight(focus.completedText.length); // width of the line depends on progress
+
+    // point of ground control
+    line(width / 2, height - 50, focus.position.x, focus.position.y);
+
+    fill(255);
+    noStroke();
+    textAlign(LEFT);
+    textSize(30);
+    text(focus.completedText, 10, height - 40);
+}
+
+/**
+ * draws the score
+ */
